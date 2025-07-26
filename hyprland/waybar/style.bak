@@ -1,0 +1,74 @@
+* {
+  font-family: "Cascadia Code", "Comic Code", "Fira Sans", "Noto Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ff69b4; /* neon pink text */
+  background: transparent;
+  border: none;
+  letter-spacing: 0.2px;
+}
+
+window {
+  background: rgba(10, 10, 12, 0.95); /* dark terminal-style base */
+  border-radius: 8px;
+  border: 1px solid #ff69b4;
+  box-shadow: 0 0 12px #ff69b480;
+  margin: 4px;
+}
+
+#clock::before,
+#cpu::before,
+#memory::before,
+#battery::before,
+#pulseaudio::before,
+#network::before {
+  content: "⟐";
+  color: #ff69b4;
+  margin: 0 8px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+/* Glow effect for modules */
+#clock, #cpu, #memory, #battery, #pulseaudio, #network {
+  background: #15151a;
+  color: #ff69b4;
+  padding: 6px 12px;
+  margin: 4px;
+  border-radius: 6px;
+  border: 1px solid #ff69b4;
+  box-shadow: 0 0 4px #ff69b4aa;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#clock:hover, #cpu:hover, #memory:hover,
+#battery:hover, #pulseaudio:hover, #network:hover {
+  background: #1e1e26;
+  box-shadow: 0 0 10px #ff69b4cc;
+  color: #ffc0df;
+}
+
+/* Workspaces styling */
+#workspaces button {
+  background: transparent;
+  padding: 4px 10px;
+  margin: 2px;
+  color: #ff69b4;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+#workspaces button.active {
+  background: linear-gradient(135deg, #ff69b4, #cba6f7);
+  color: #0a0a0c;
+  border: 1px solid #ff69b4;
+  box-shadow: 0 0 8px #ff69b4aa;
+}
+
+#workspaces button:hover {
+  background: #2a2a33;
+  color: #ffb6d5;
+  border: 1px solid #ff69b4;
+  box-shadow: 0 0 8px #ff69b4cc;
+}

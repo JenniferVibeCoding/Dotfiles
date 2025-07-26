@@ -1,0 +1,149 @@
+# ─── Monitors ───────────────────────────────
+monitor=DP-1, 3840x2160@60, 0x0,1
+monitor=DP-2, 3840x2160@60, 3840x0,1
+
+# ─── Environment ────────────────────────────
+env = XCURSOR_SIZE, 24
+env = MOZ_ENABLE_WAYLAND,1
+blurls = 1
+env MOZ_ENABLE_WAYLAND=1 /opt/firefox-nightly/firefox --enable-blur
+
+# ─── Autostart ──────────────────────────────
+exec-once = ~/.config/hypr/scripts/startup.sh
+exec-once = pulseaudio --start
+exec-once = hyprpaper
+
+# ─── App Shortcuts ─────────────────────────
+$terminal = kitty
+$fileManager = thunar
+$menu = env -u WAYLAND_DISPLAY rofi -show drun
+$browser = firefox-nightly
+$coding = cursor.sh
+$music = spotify
+
+# ─── Main Mod ───────────────────────────────
+$mainMod = ALT
+
+# --- Workspace Layout -----------------------
+workspace = 1, monitor:<your-monitor-name>, default:true
+exec-once = spotify
+exec-once = kitty --title Terminal1
+
+# Example rule to float and resize Spotify
+windowrulev2 = float, class:^(Spotify)$
+windowrulev2 = size 900 500, class:^(Spotify)$
+windowrulev2 = move 50 50, class:^(Spotify)$
+
+# Rule to place Kitty in bottom-right
+windowrulev2 = move 1000 600, title:^(Terminal1)$
+windowrulev2 = size 800 400, title:^(Terminal1)$
+ 
+# ─── Keybinds ───────────────────────────────
+bind = $mainMod SHIFT, Q, killactive,
+bind = $mainMod, F, exec, $browser
+bind = $mainMod, RETURN, exec, $terminal
+bind = $mainMod, C, exec, cursor
+bind = $mainMod SHIFT, D, exec, $menu
+bind = $mainMod, G, togglefloating,
+bind = $mainMod, S, togglesplit,
+bind = $mainMod, P, pin,
+bind = $mainMod SHIFT, R, exec, hyprctl reload,
+bind = $mainMod SHIFT, S, exec, ~/Scripts/spotify-launch.sh
+
+# Workspaces
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+
+# Move to workspace
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+
+# Workspace Scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+
+# ─── Mouse Binds ───────────────────────────
+bindm = $mainMod, mouse:273, resizewindow
+bindm = $mainMod, mouse:272, movewindow
+
+# ─── Input ──────────────────────────────────
+input {
+  kb_layout = us
+  follow_mouse = yes
+}
+
+# ─── General Settings ───────────────────────
+general {
+  allow_tearing = false
+  layout = dwindle
+  no_border_on_floating = true
+  border_size = 2
+  gaps_in = 6
+  gaps_out = 12
+  col.active_border = rgba(ff69b4cc) rgba(ff00ffcc) 135deg  # Neon pink
+  col.inactive_border = rgba(ff69b433)
+}
+
+# ----- Blur and Rounding -----
+decoration {
+  rounding = 12
+
+  shadow {
+    enabled = true
+    range = 14
+    render_power = 2
+    offset = 0 6
+    scale = 1.0
+    ignore_window = false
+    color = rgba(ff69b420)
+    color_inactive = rgba(00000010)
+  }
+
+  blur {
+    enabled = true
+    size = 8
+    passes = 3
+    new_optimizations = true
+    vibrancy = 0.18
+  }
+}
+
+# ----- Animations -----
+animations {
+  enabled = true
+  bezier = ease, 0.25, 1, 0.5, 1
+  animation = windows, 1, 3, ease
+  animation = fade, 1, 2, ease
+  animation = workspaces, 1, 2, ease
+}
+# ─── Misc ───────────────────────────────────
+misc {
+  layers_hog_keyboard_focus = true
+  animate_manual_resizes = true
+  animate_mouse_windowdragging = true
+  key_press_enables_dpms = false
+  mouse_move_enables_dpms = false
+  font_family = FiraCode Nerd Font
+  force_default_wallpaper = 1
+  disable_splash_rendering = true
+  disable_hyprland_logo = true
+}
+
+# ─── Window Rules ───────────────────────────
+windowrulev2 = opaque, class:^(kitty)$
+windowrulev2 = opacity 1.0 1.0, class:^(kitty)$
+windowrulev2 = opacity 0.40,class:^(Code|Cursor)$
