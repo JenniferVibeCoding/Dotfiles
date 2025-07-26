@@ -2,6 +2,7 @@
 
 Welcome to my custom dotfiles setup, built for a fully keyboard-driven, aesthetic, pastel-rice Arch system using Hyprland. These configs are deeply themed, script-automated, and ready for both daily use and future scaling.
 
+![Hyprland Desktop](https://github.com/JenniferVibeCoding/Dotfiles/blob/main/screenshot_1753498043.png)
 ---
 
 ## 📦 What’s Inside
