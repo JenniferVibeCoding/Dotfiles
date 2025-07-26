@@ -20,6 +20,8 @@ Welcome to my custom dotfiles setup, built for a fully keyboard-driven, aestheti
 
 You can toggle apps into floating, dedicated special workspaces using scripts in `~/.config/launchers/`.
 
+![Scratch pad example](https://github.com/JenniferVibeCoding/Dotfiles/blob/main/screenshot_1753498523.png)
+
 ### 🛠️ To Add a New App Toggle:
 
 1. **Create a launcher script** (e.g. `toggle_spotify.sh`)
