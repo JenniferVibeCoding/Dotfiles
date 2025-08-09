@@ -1,0 +1,53 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "custom/blacknode"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "temperature",
+    "memory",
+    "disk",
+    "network",
+    "pulseaudio",
+    "battery",
+    "tray"
+  ],
+  "custom/blacknode": {
+    "format": "_BLACKNODE>",
+    "tooltip": false
+  },
+  "clock": {
+    "format": " {:%Y-%m-%d %H:%M}",
+    "tooltip-format": "{:%A, %B %d, %Y | %I:%M:%S %p}"
+  },
+  "cpu": {
+    "format": " {usage}%"
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "temperature": {
+    "format": " {temperatureC}°C",
+    "critical-threshold": 80
+  },
+  "disk": {
+    "format": " {free} free"
+  },
+  "network": {
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "󰖪 Disconnected"
+  },
+  "pulseaudio": {
+    "format": " {volume}%"
+  },
+  "battery": {
+    "format": "  {capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  }
+}

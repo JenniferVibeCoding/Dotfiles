@@ -1,0 +1,126 @@
+90x-224
+exec-once = ~/.config/hypr/scripts/startup.sh
+
+
+monitor=DP-1, 3840x2160@60, 0x0,1
+monitor=DP-2, 3840x2160@60, 3840x0,1
+
+# Autostart #
+exec-once = pulseaudio --start
+exec-once = gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-latte-pink-standard+default'
+exec-once = gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Pink'
+exec-once = gsettings set org.gnome.desktop.interface font-name 'Noto Sans 10'
+exec-once = lxappearance  # So you can apply changes graphically
+
+
+# My Programs #
+$terminal = kitty
+$fileManager = thunar
+$menu = env -u WAYLAND_DISPLAY rofi -show drun
+$browser = firefox
+$coding = cursor.sh
+
+
+$mainMod = ALT
+
+# KeyBinds #
+
+bind = $mainMod SHIFT, Q, killactive,
+bind = $mainMod, F, exec, $browser
+bind = $mainMod, RETURN, exec, $terminal
+bind = $mainMod, C, exec, cursor.sh
+bind = $mainMod SHIFT, D, exec, env -u WAYLAND_DISPLAY rofi -show drun
+bind = $mainMod, G, togglefloating,
+bind = $mainMod, S, togglesplit,
+bind = $mainMod, P, pin,
+bind = $mainMod SHIFT, R, exec, hyprctl reload,
+
+
+# Workspace switching (Alt + [1–9])
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+
+# Move active window to workspace (Alt + Shift + [1–9])
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+
+## WorkSpaces ##
+
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+
+# Hold Alt + Left Click to resize windows
+bindm = $mainMod, mouse:272, resizewindow
+
+# Hold Alt + Right Click to move windows
+bindm = $mainMod, mouse:273, movewindow
+
+# Focus window under mouse (no click needed)
+input {
+  follow_mouse = yes
+}
+
+# Make windows stay within bounds when moving/resizing
+
+# Automatically raise focused window
+misc {
+  layers_hog_keyboard_focus = true
+}
+
+misc {
+
+animate_manual_resizes = true
+animate_mouse_windowdragging = true
+key_press_enables_dpms = false
+mouse_move_enables_dpms = false
+font_family = FiraCode Nerd Font
+force_default_wallpaper = 1
+disable_splash_rendering = true
+disable_hyprland_logo = true
+
+}
+
+# Keyboard #
+
+input {
+  kb_layout = us
+}
+
+input {
+  follow_mouse = yes
+}
+general {
+  gaps_in = 5
+  gaps_out = 10
+  border_size = 2
+  col.active_border = rgba(aa00ffcc)  # your neon style
+  col.inactive_border = rgba(aa00ff66)
+
+  layout = dwindle
+}
+# Disable global transparency
+general {
+    allow_tearing = false
+    layout = dwindle
+    no_border_on_floating = true
+}
+windowrulev2 = opaque, class:^(kitty)$
+windowrulev2 = opacity 1.0 1.0, class:^(kitty)$
+general {
+    col.active_border = rgba(f3e6d3ff)
+    col.inactive_border = rgba(f3e6d3ff)
+}

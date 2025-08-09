@@ -1,0 +1,197 @@
+/* ====== Kitty-matched palette ====== */
+@define-color bg        #1e1a24;   /* background */
+@define-color fg        #f6d0e8;   /* foreground */
+@define-color accent    #ff94d4;   /* cursor/accent */
+@define-color sel_bg    #ffaad4;   /* selection background */
+@define-color sel_fg    #1e1a24;   /* selection foreground */
+@define-color panel     #2a1f2d;   /* header/sidebar */
+@define-color panel2    #3a2b36;   /* alt panel */
+@define-color border    rgba(255,255,255,0.08);
+
+@define-color ok        #a7f1c2;
+@define-color warn      #fce7b2;
+@define-color info      #d6c2ff;
+@define-color danger    #ff6aa8;
+
+/* ====== Global ====== */
+window, dialog, .background, .view, textview, treeview, iconview {
+  background-color: @bg;
+  color: @fg;
+}
+
+/* links */
+*:link, *:visited {
+  color: @info;
+}
+
+/* caret in entries/textviews */
+entry, textview {
+  caret-color: @accent;
+}
+
+/* ====== Headerbars / Titlebars ====== */
+headerbar, .titlebar {
+  background: @panel;
+  color: @fg;
+  border-bottom: 1px solid @border;
+}
+headerbar .title, headerbar .subtitle { color: @fg; }
+
+/* ====== Sidebars (Thunar left pane etc.) ====== */
+.sidebar, .side-bar, .sidebar .view, .places-treeview, .source-list {
+  background-color: @panel2;
+  color: @fg;
+}
+.sidebar row:selected, .sidebar row:selected label {
+  background-color: alpha(@sel_bg, 1);
+  color: @fg;
+}
+
+/* ====== Lists / Trees / Icon views ====== */
+.view:selected, treeview:selected, iconview:selected, textview text:selected {
+  background-color: @sel_bg;
+  color: @sel_fg;
+}
+.view:hover:not(:selected) {
+  background-color: alpha(@panel2, 0.35);
+}
+
+/* ====== Buttons ====== */
+button {
+  background: alpha(@panel, 0.85);
+  color: @fg;
+  border: 1px solid @border;
+  border-radius: 6px;
+}
+button:hover {
+  background: alpha(@panel2, 0.85);
+}
+button:active {
+  background: alpha(@accent, 0.25);
+  border-color: @accent;
+}
+button.suggested-action, button.default {
+  background: alpha(@accent, 0.25);
+  border-color: @accent;
+}
+
+/* ====== Entries / Search fields ====== */
+entry {
+  background: alpha(@panel2, 0.6);
+  color: @fg;
+  border: 1px solid @border;
+  border-radius: 6px;
+}
+entry:focus {
+  border-color: @accent;
+  box-shadow: 0 0 0 2px alpha(@accent, 0.25);
+}
+
+/* ====== Check / Radio ====== */
+checkbutton check, radiobutton radio {
+  border-color: @border;
+}
+checkbutton check:checked, radiobutton radio:checked {
+  background-color: @accent;
+  border-color: @accent;
+}
+
+/* ====== Notebook tabs ====== */
+notebook > header, notebook > header tabs {
+  background: @panel;
+  border-bottom: 1px solid @border;
+}
+notebook tab {
+  background: alpha(@panel, 0.8);
+  color: @fg;
+}
+notebook tab:checked {
+  background: alpha(@panel2, 0.9);
+  border-bottom: 2px solid @accent;
+}
+
+/* ====== Scrollbars ====== */
+scrollbar {
+  background-color: alpha(@panel, 0.5);
+}
+scrollbar slider {
+  background-color: alpha(@fg, 0.25);
+  border-radius: 8px;
+}
+scrollbar slider:hover {
+  background-color: alpha(@fg, 0.4);
+}
+
+/* ====== Tooltips ====== */
+tooltip {
+  background: @panel2;
+  color: @fg;
+  border: 1px solid @border;
+}
+
+/* ====== Infobars ====== */
+.info {
+  background: alpha(@info, 0.15);
+  border: 1px solid alpha(@info, 0.6);
+}
+.warning {
+  background: alpha(@warn, 0.15);
+  border: 1px solid alpha(@warn, 0.6);
+}
+.error, .danger {
+  background: alpha(@danger, 0.15);
+  border: 1px solid alpha(@danger, 0.6);
+}
+.success {
+  background: alpha(@ok, 0.15);
+  border: 1px solid alpha(@ok, 0.6);
+}
+
+/* ====== Optional: subtle transparency (enable if you want) ====== */
+/*
+window, dialog, .background {
+  background-color: rgba(30,26,36,0.7);  // slight alpha; compositor does the rest
+}
+*/
+
+/* ====== Menubar & Menus (File / Edit / View, etc.) ====== */
+
+/* Top menubar strip */
+menubar {
+  background-color: @panel; /* solid */
+  color: @fg;
+  border-bottom: 1px solid @border;
+}
+
+/* Items in the menubar */
+menubar > menuitem {
+  background-color: transparent; /* so it blends with the solid bar */
+  color: @fg;
+  padding: 4px 8px;
+}
+
+/* Hover highlight in menubar */
+menubar > menuitem:hover {
+  background-color: alpha(@sel_bg, 0.25);
+  color: @fg;
+}
+
+/* Drop-down menus themselves */
+menu {
+  background-color: @panel; /* solid so text is always clear */
+  color: @fg;
+  border: 1px solid @border;
+}
+
+/* Items in the drop-down menus */
+menu menuitem {
+  background-color: transparent;
+  color: @fg;
+  padding: 4px 10px;
+}
+
+/* Hover highlight in drop-down */
+menu menuitem:hover {
+  background-color: alpha(@sel_bg, 0.35);
+  color: @sel_fg;
+}

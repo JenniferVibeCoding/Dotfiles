@@ -1,0 +1,66 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": [
+    "hyprland/workspaces"  // ← Use the Hyprland-specific workspaces module
+  ],
+
+  "modules-center": ["clock"],
+
+  "modules-right": [
+    "custom/system_health",
+    "pulseaudio",
+    "network",
+    "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": false,
+    "format": "{icon}", // You can change this to {name}, {id}, or {icon}
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  "disk": {
+    "format": "💾 {used}/{total} ({percentage_used}%)"
+  },
+
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "{:%A, %B %d, %Y}"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "󰖪 Disconnected"
+  },
+
+  "custom/system_health": {
+    "exec": "~/.config/waybar/scripts/system_health.sh",
+    "interval": 5,
+    "format": "{}",
+    "tooltip": false
+  },
+  
+  "custom/spotify": {
+    "format": "  {}",
+    "exec": "playerctl metadata --format '{{ artist }} - {{ title }}'",
+    "interval": 5,
+    "tooltip": false
+  }
+
+}

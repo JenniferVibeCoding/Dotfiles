@@ -1,0 +1,52 @@
+configuration {
+  modi: "drun,run,window";
+}
+
+* {
+  font: "JetBrainsMono Nerd Font 12";
+  background-color: transparent;          /* compositor handles real alpha */
+  text-color: #f6d0e8;
+  padding: 10px;
+  margin: 10px;
+}
+
+window {
+  location: center;
+  width: 50%;
+  border-radius: 12px;
+  border: 1px;
+  border-color: #ffaad4;
+}
+
+mainbox { children: [ inputbar, listview ]; }
+
+inputbar {
+  background-color: rgba(42,30,47,0.6);
+  text-color: #ffd5ec;
+  border-radius: 6px;
+  border: 1px;
+  border-color: #ffaad4;
+  padding: 6px;
+  margin: 6px;
+}
+
+listview {
+  background-color: transparent;
+  lines: 10;
+}
+
+element {
+  padding: 6px;
+  border-radius: 6px;
+  background-color: transparent;
+  text-color: #f6d0e8;
+}
+
+element.selected {
+  background-color: rgba(255,170,212,0.3);
+  text-color: #ffaad4;
+}
+
+separator {           /* modern key */
+  color: rgba(255,255,255,0.15);
+}

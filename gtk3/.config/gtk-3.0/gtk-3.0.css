@@ -1,0 +1,61 @@
+/* === Pastel Glass for Thunar ===
+   Matches rofi glass.rasi theme:
+   text: #f6d0e8, accent: #ffaad4, input bg: rgba(42,30,47,0.75)
+*/
+
+/* Icon grid labels */
+iconview cell {
+  background-color: rgba(42,30,47,0.60);
+  border-radius: 8px;
+  padding: 3px 6px;
+  color: #f6d0e8;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.85);
+}
+
+iconview cell:selected,
+iconview cell:focus {
+  background-color: rgba(255,170,212,0.60);
+  color: #ffaad4;
+}
+
+/* List view */
+treeview.view {
+  color: #f6d0e8;
+}
+treeview.view:selected,
+treeview.view:focus {
+  background-color: rgba(255,170,212,0.25);
+  color: #ffaad4;
+}
+
+/* Sidebar: text + icons tinted to accent */
+.sidebar treeview.view { 
+  color: #f6d0e8;
+}
+.sidebar treeview.view:selected {
+  background-color: rgba(255,170,212,0.25);
+  color: #ffaad4;
+}
+
+/* Sidebar icon tint (SVG-based icons respect this) */
+.sidebar image {
+  color: #ffaad4; /* main accent */
+}
+
+/* Pathbar / toolbar buttons */
+pathbar button {
+  border-radius: 6px;
+  border: 1px solid #ffaad4;
+  color: #ffaad4;
+}
+
+/* Location/search entries */
+entry {
+  background-color: rgba(42,30,47,0.75);
+  color: #ffd5ec;
+  border: 1px solid #ffaad4;
+  border-radius: 6px;
+}
+
+/* Subtle separators */
+separator { background-color: rgba(255,255,255,0.15); }

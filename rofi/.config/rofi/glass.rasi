@@ -1,0 +1,72 @@
+configuration {
+  modi: "drun,run,window";
+  show-icons: true;
+}
+
+* {
+  font: "JetBrainsMono Nerd Font 12";
+  background-color: transparent;
+  text-color: #f6d0e8;
+  padding: 10px;
+  margin: 10px;
+}
+
+window {
+  location: center;
+  width: 52%;
+  border-radius: 14px;
+  border: 1px;
+  border-color: #ffaad4;
+}
+
+mainbox { children: [ inputbar, listview ]; }
+
+inputbar {
+  background-color: rgba(42,30,47,0.75);
+  text-color: #ffd5ec;
+  border-radius: 8px;
+  border: 1px;
+  border-color: #ffaad4;
+  padding: 8px;
+  margin: 8px;
+}
+
+/* === bubble cloud layout === */
+listview {
+  background-color: transparent;
+  lines: 6;            /* rows */
+  columns: 4;          /* grid columns */
+  spacing: 12px;       /* gap between bubbles */
+  scrollbar: false;    /* hide scrollbar */
+}
+
+/* base bubble */
+element {
+  background-color: rgba(255,170,212,0.22);
+  text-color: #f6d0e8;
+  border-radius: 999px;      /* pill */
+  padding: 10px 16px;
+  margin: 4px;
+  border: 1px;
+  border-color: rgba(255,170,212,0.35);
+}
+
+/* selected bubble (ring-ish look) */
+element selected {
+  background-color: rgba(255,170,212,0.55);
+  text-color: #1e1a24;       /* readable on pink */
+  border-color: #ffaad4;
+}
+
+/* icon + text */
+element-icon {
+  size: 28px;
+  margin: 4px 6px 0 6px;
+}
+element-text {
+  /* keep it simple for compatibility */
+  highlight: #ffaad4;        /* search highlight in accent */
+}
+
+/* subtle separators */
+separator { color: rgba(255,255,255,0.12); }
