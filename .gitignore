@@ -1,6 +1,31 @@
-# .gitignore
-*.log
-*~
-.cache/
-.history
+**/.cache/
+**/Cache/
+**/GPUCache/
+**/Code Cache/
+**/Service Worker/
+**/shader_cache/
+**/StartupCache/
+**/storage/
+**/crashpad/
+
+# Firefox heavy/sensitive
+**/*.sqlite*
+**/extensions.json
+**/sessionstore.*
+**/logins*.json
+**/key4.db
+**/favicons.sqlite*
+**/places.sqlite*
+**/cookies.sqlite*
+**/webappsstore.sqlite*
+**/xulstore.json
+
+# Chromium (if you add later)
+**/Cookies*
+**/History*
+**/Top Sites*
+**/Visited Links
+**/QuotaManager*
+
 .DS_Store
+*.swp
